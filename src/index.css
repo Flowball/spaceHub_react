@@ -7,3 +7,12 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+.gradient-bg {
+  background: rgb(196, 217, 207);
+  background: radial-gradient(
+    circle,
+    rgba(196, 217, 207, 1) 2%,
+    rgba(46, 130, 230, 1) 91%
+  );
+}

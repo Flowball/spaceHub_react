@@ -4,18 +4,26 @@ import {
   PhotoIcon,
   PlayIcon,
 } from "@heroicons/react/24/outline";
-import { spacexData } from "../data";
-import FetchSpaceXdata from "./FetchSpaceXdata";
+import { useQuery } from "@tanstack/react-query";
+import { SpaceXdata } from "../types";
 
 function Spacex() {
-  const data = FetchSpaceXdata();
-  console.log(data);
+  const query = useQuery({
+    queryKey: ["data"],
+    queryFn: async () => {
+      const response = await fetch("https://api.spacexdata.com/v5/launches");
+      const data = await response.json();
+      return data;
+    },
+  });
+  if (query.isLoading) return <h1>LOADING....</h1>;
+  if (query.isError) return <h1>Something went wrong....</h1>;
 
   return (
     <>
-      <main className=" container p-4 flex flex-col  gap-4 w-full mx-auto">
+      <main className=" container p-4 grid grid-cols-2 flex-col  gap-4 w-full mx-auto">
         {/* <h1 className="">SPACE X LAUNCHES</h1> */}
-        {spacexData.map((data) => (
+        {query.data.map((data: SpaceXdata) => (
           <>
             <div
               key={data.id}
@@ -34,15 +42,13 @@ function Spacex() {
                 <div className="text-2xl">{data.name}</div>
               </div>
               <div className="flex gap-4 text-2xl">
-                {data.links.webcast ? (
+                {data.links.webcast && (
                   <div className="flex flex-row items-center">
                     <PlayIcon className="w-12 h-12 " />
                     <a href={data.links.webcast} target="_blank">
                       Webcast
                     </a>
                   </div>
-                ) : (
-                  <div>No webcast available</div>
                 )}
 
                 {data.links.article ? (
@@ -52,9 +58,7 @@ function Spacex() {
                       Article
                     </a>
                   </div>
-                ) : (
-                  <></>
-                )}
+                ) : null}
                 {data.links.wikipedia ? (
                   <div className="flex flex-row items-center">
                     <InformationCircleIcon className="w-12 h-12 " />
@@ -62,9 +66,7 @@ function Spacex() {
                       Wikipedia
                     </a>
                   </div>
-                ) : (
-                  <div>No wiki article available</div>
-                )}
+                ) : null}
               </div>
               {data.rocket ? (
                 <div className="flex flex-col ">

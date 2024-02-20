@@ -5,15 +5,22 @@ import {
   PlayIcon,
 } from "@heroicons/react/24/outline";
 import { spacexData } from "../data";
+import FetchSpaceXdata from "./FetchSpaceXdata";
 
 function Spacex() {
+  const data = FetchSpaceXdata();
+  console.log(data);
+
   return (
     <>
       <main className=" container p-4 flex flex-col  gap-4 w-full mx-auto">
         {/* <h1 className="">SPACE X LAUNCHES</h1> */}
         {spacexData.map((data) => (
           <>
-            <div className="border-2 w-full flex flex-col gap-4 bg-slate-200 rounded-lg p-4">
+            <div
+              key={data.id}
+              className="border-2 w-full flex flex-col gap-4 bg-slate-200 rounded-lg p-4"
+            >
               <div className="flex items-center gap-10">
                 {data.links.patch.large ? (
                   <img

@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="h-full flex">
+      <div className="h-full flex ">
         <Outlet />
       </div>
       <Footer />

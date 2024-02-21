@@ -29,7 +29,10 @@ function Spacex() {
               key={data.id}
               className="border-2 w-full flex flex-col gap-4 bg-slate-200 rounded-lg p-4"
             >
-              <div className="flex items-center gap-10">
+              <div
+                key={data.links.patch.large}
+                className="flex items-center gap-10"
+              >
                 {data.links.patch.large ? (
                   <img
                     src={data.links.patch.large}
@@ -39,7 +42,9 @@ function Spacex() {
                 ) : (
                   <PhotoIcon className="w-20 h-20 text-slate-50" />
                 )}
-                <div className="text-2xl">{data.name}</div>
+                <div key={data.name} className="text-2xl">
+                  {data.name}
+                </div>
               </div>
               <div className="flex gap-4 text-2xl">
                 {data.links.webcast && (

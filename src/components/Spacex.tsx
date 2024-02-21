@@ -19,6 +19,7 @@ function Spacex() {
   if (query.isLoading) return <h1>LOADING....</h1>;
   if (query.isError) return <h1>Something went wrong....</h1>;
 
+  const iconStyles = "size-12";
   return (
     <>
       <main className=" container p-4 grid grid-cols-2 flex-col  gap-4 w-full mx-auto">
@@ -27,7 +28,7 @@ function Spacex() {
           <>
             <div
               key={data.id}
-              className="border-2 w-full flex flex-col gap-4 bg-slate-200 rounded-lg p-4"
+              className="border-2 w-full flex flex-col gap-4 bg-slate-100 border-slate-100 rounded-lg p-4"
             >
               <div
                 key={data.links.patch.large}
@@ -42,14 +43,14 @@ function Spacex() {
                 ) : (
                   <PhotoIcon className="w-20 h-20 text-slate-50" />
                 )}
-                <div key={data.name} className="text-2xl">
+                <div key={data.name} className="text-2xl ">
                   {data.name}
                 </div>
               </div>
               <div className="flex gap-4 text-2xl">
                 {data.links.webcast && (
                   <div className="flex flex-row items-center">
-                    <PlayIcon className="w-12 h-12 " />
+                    <PlayIcon className={iconStyles} />
                     <a href={data.links.webcast} target="_blank">
                       Webcast
                     </a>
@@ -58,7 +59,7 @@ function Spacex() {
 
                 {data.links.article ? (
                   <div className="flex flex-row items-center">
-                    <NewspaperIcon className="w-12 h-12 " />
+                    <NewspaperIcon className={iconStyles} />
                     <a href={data.links.article} target="_blank">
                       Article
                     </a>
@@ -66,7 +67,7 @@ function Spacex() {
                 ) : null}
                 {data.links.wikipedia ? (
                   <div className="flex flex-row items-center">
-                    <InformationCircleIcon className="w-12 h-12 " />
+                    <InformationCircleIcon className={iconStyles} />
                     <a href={data.links.wikipedia} target="_blank">
                       Wikipedia
                     </a>

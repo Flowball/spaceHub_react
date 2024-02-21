@@ -30,7 +30,10 @@ function Aside() {
       <Link to={"/nasa"}>
         <GlobeEuropeAfricaIcon
           className={
-            (location.pathname == "/nasa"
+            (location.pathname == "/nasa" ||
+            location.pathname == "/nasa/pictureoftheday" ||
+            location.pathname == "/nasa/marsweather" ||
+            location.pathname == "/nasa/eonet"
               ? "text-[#525CEB]"
               : "text-[#BFCFE7]") + " size-20 p-4"
           }

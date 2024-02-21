@@ -20,10 +20,10 @@ function Spacex() {
   if (query.isError) return <h1>Something went wrong....</h1>;
 
   const iconStyles = "size-12";
+
   return (
     <>
       <main className=" container p-4 grid grid-cols-2 flex-col  gap-4 w-full mx-auto">
-        {/* <h1 className="">SPACE X LAUNCHES</h1> */}
         {query.data?.map((data) => (
           <>
             <div

@@ -8,7 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { SpaceXdata } from "../types";
 
 function Spacex() {
-  const query = useQuery({
+  const query = useQuery<SpaceXdata[]>({
     queryKey: ["data"],
     queryFn: async () => {
       const response = await fetch("https://api.spacexdata.com/v5/launches");
@@ -23,7 +23,7 @@ function Spacex() {
     <>
       <main className=" container p-4 grid grid-cols-2 flex-col  gap-4 w-full mx-auto">
         {/* <h1 className="">SPACE X LAUNCHES</h1> */}
-        {query.data.map((data: SpaceXdata) => (
+        {query.data?.map((data) => (
           <>
             <div
               key={data.id}

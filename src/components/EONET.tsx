@@ -1,5 +1,5 @@
 function EONET() {
-  return <div>EONET</div>;
+  return <>EONET</>;
 }
 
 export default EONET;

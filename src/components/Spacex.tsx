@@ -75,7 +75,7 @@ function Spacex() {
                 ) : null}
               </div>
               {data.rocket ? (
-                <div className="flex flex-col ">
+                <div className="flex flex-col">
                   <div>RocketID: {data.rocket}</div>
                   <div>LaunchpadID: {data.launchpad}</div>
                 </div>

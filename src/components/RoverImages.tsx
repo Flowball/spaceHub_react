@@ -1,5 +1,7 @@
 import { useState } from "react";
+import QueryPhotosData from "./QueryPhotosData";
 
+// TYPA SKITEN!!!
 function RoverImages() {
   const [queryDate, setQueryDate] = useState("");
 
@@ -9,10 +11,8 @@ function RoverImages() {
   function handleDateChange(e) {
     if (e.target.value) {
       setQueryDate(e.target.value);
-      console.log(e.target.value);
     }
   }
-  function queryData() {}
 
   return (
     <>
@@ -32,9 +32,8 @@ function RoverImages() {
           />
           <button className="p-4 bg-red-400">SUBMIT</button>
         </form>
-        <div>
-          <h1>response</h1>
-        </div>
+        {/* detta för att inte köra api call direkt ,problem dock, annan lösning? */}
+        <div>{queryDate && <QueryPhotosData queryDate={queryDate} />}</div>
       </div>
     </>
   );

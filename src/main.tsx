@@ -9,9 +9,9 @@ import {
 } from "react-router-dom";
 import App from "./App.tsx";
 import EONET from "./components/EONET.tsx";
-import MarsWeather from "./components/MarsWeather.tsx";
 import Nasa from "./components/Nasa.tsx";
 import POTD from "./components/POTD.tsx";
+import RoverImages from "./components/RoverImages.tsx";
 import Spacex from "./components/Spacex.tsx";
 import "./index.css";
 
@@ -23,7 +23,7 @@ const router = createBrowserRouter(
       <Route path="spacex" Component={Spacex}></Route>
       <Route path="nasa" Component={Nasa}>
         <Route path="pictureoftheday" Component={POTD} />
-        <Route path="marsweather" Component={MarsWeather} />
+        <Route path="marsweather" Component={RoverImages} />
         <Route path="eonet" Component={EONET} />
       </Route>
     </Route>

@@ -1,10 +1,8 @@
-import { Outlet } from "react-router-dom";
-
 function Main() {
   return (
-    <div className="h-full flex">
-      <div>MAIN!!</div>
-      <Outlet />
+    <div>
+      <h1>SPEJS</h1>
+      <h2>This is a school submi</h2>
     </div>
   );
 }

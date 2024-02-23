@@ -14,7 +14,7 @@ function NavBar() {
         <HomeIcon
           className={
             (location.pathname == "/" ? "text-[#FDF470]" : "text-[#BFCFE7]") +
-            " size-20 p-4"
+            " size-20 p-4 hover:text-[#fdf470cc] transition-all"
           }
         />
       </Link>
@@ -23,7 +23,8 @@ function NavBar() {
           className={
             (location.pathname == "/spacex"
               ? "text-[#FDF470]"
-              : "text-[#BFCFE7]") + " size-20 p-4"
+              : "text-[#BFCFE7]") +
+            " size-20 p-4 hover:text-[#fdf470cc] transition-all"
           }
         />
       </Link>
@@ -35,7 +36,8 @@ function NavBar() {
             location.pathname == "/nasa/marsweather" ||
             location.pathname == "/nasa/eonet"
               ? "text-[#FDF470]"
-              : "text-[#BFCFE7]") + " size-20 p-4"
+              : "text-[#BFCFE7]") +
+            " size-20 p-4 hover:text-[#fdf470cc] transition-all"
           }
         />
       </Link>

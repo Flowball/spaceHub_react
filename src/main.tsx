@@ -11,7 +11,7 @@ import App from "./App.tsx";
 import EONET from "./components/EONET.tsx";
 import Nasa from "./components/Nasa.tsx";
 import POTD from "./components/POTD.tsx";
-import RoverImages from "./components/RoverImages.tsx";
+import RoverImages from "./components/CuriosityPhotos.tsx";
 import Spacex from "./components/Spacex.tsx";
 import "./index.css";
 

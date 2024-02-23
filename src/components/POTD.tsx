@@ -1,15 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
+import { getPictureOftheDayData } from "../api/nasa";
 
 function POTD() {
   const query = useQuery({
     queryKey: ["potdData"],
-    queryFn: async () => {
-      const response = await fetch(
-        "https://api.nasa.gov/planetary/apod?api_key=KVRMfJv1YoZpHvHlgsNAoIaU8zNJAVViIbsbd2d6"
-      );
-      const data = await response.json();
-      return data;
-    },
+    queryFn: () => getPictureOftheDayData(),
   });
   if (query.isLoading) return <h1>LOADING....</h1>;
   if (query.isError) return <h1>Something went wrong....</h1>;
@@ -23,10 +18,10 @@ function POTD() {
         <div className="flex flex-col mx-20 bg-slate-300 rounded-lg p-4">
           <div className="flex justify-between py-4">
             <p>
-              Date: <b>{query.data.date}</b>
+              Date: <b>{query.data?.date}</b>
             </p>
             <p>
-              Title: <b>{query.data.title}</b>
+              Title: <b>{query.data?.title}</b>
             </p>
           </div>
           <div className="flex">
@@ -35,10 +30,10 @@ function POTD() {
               alt="picture of the day"
               className="max-w-lg rounded-lg"
             />
-            <h2 className="px-4">Explanation: {query.data.explanation}</h2>
+            <h2 className="px-4">Explanation: {query.data?.explanation}</h2>
           </div>
           <div className="py-4">
-            Copyright: <b>{query.data.copyright}</b>
+            Copyright: <b>{query.data?.copyright}</b>
           </div>
         </div>
       </div>

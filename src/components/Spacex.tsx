@@ -5,16 +5,13 @@ import {
   PlayIcon,
 } from "@heroicons/react/24/outline";
 import { useQuery } from "@tanstack/react-query";
-import { SpaceXdata } from "../types";
+import { getSpaceXData } from "../api/spaceX";
+import { SpaceXdata } from "../types/types";
 
 function Spacex() {
   const query = useQuery<SpaceXdata[]>({
     queryKey: ["spacex-launches"],
-    queryFn: async () => {
-      const response = await fetch("https://api.spacexdata.com/v5/launches");
-      const data = await response.json();
-      return data;
-    },
+    queryFn: () => getSpaceXData(),
   });
   if (query.isLoading) return <h1>LOADING....</h1>;
   if (query.isError) return <h1>Something went wrong....</h1>;

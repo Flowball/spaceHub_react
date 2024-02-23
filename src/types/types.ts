@@ -16,3 +16,8 @@ export interface SpaceXdata {
   patch: string;
   id: string;
 }
+
+export interface DateEvent {
+  target: string;
+  value: string;
+}

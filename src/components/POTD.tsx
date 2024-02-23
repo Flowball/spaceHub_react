@@ -1,12 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import { getPictureOftheDayData } from "../api/nasa";
+import Loading from "./Loading";
 
 function POTD() {
   const query = useQuery({
     queryKey: ["potdData"],
     queryFn: () => getPictureOftheDayData(),
   });
-  if (query.isLoading) return <h1>LOADING....</h1>;
+  if (query.isLoading)
+    return (
+      <h1>
+        <Loading />
+      </h1>
+    );
   if (query.isError) return <h1>Something went wrong....</h1>;
 
   return (

@@ -5,6 +5,7 @@ interface Props {
 import { useQuery } from "@tanstack/react-query";
 import { getCurisosityData } from "../api/nasa";
 import { CuriosityData } from "../types/types";
+import Loading from "./Loading";
 
 function QueryPhotosData(props: Props) {
   const query = useQuery({
@@ -12,7 +13,12 @@ function QueryPhotosData(props: Props) {
     queryFn: () => getCurisosityData(props.queryDate),
   });
 
-  if (query.isLoading) return <h1>LOADING....</h1>;
+  if (query.isLoading)
+    return (
+      <h1>
+        <Loading />
+      </h1>
+    );
   if (query.isError) return <h1>Something went wrong....</h1>;
   if (query.data.photos.length < 1)
     return (

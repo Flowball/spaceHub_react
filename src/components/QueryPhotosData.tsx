@@ -4,11 +4,11 @@ interface Props {
 
 import { useQuery } from "@tanstack/react-query";
 import { getCurisosityData } from "../api/nasa";
+import { CuriosityData } from "../types/types";
 
 function QueryPhotosData(props: Props) {
   const query = useQuery({
     queryKey: ["data", props.queryDate],
-    // enabled: false,
     queryFn: () => getCurisosityData(props.queryDate),
   });
 
@@ -27,7 +27,7 @@ function QueryPhotosData(props: Props) {
       <h1>
         Found <b>{query.data.photos.length}</b> images
       </h1>
-      {query.data.photos.map((item) => (
+      {query.data.photos.map((item: CuriosityData) => (
         <img src={item.img_src} alt="" key={item.id} className="rounded-lg" />
       ))}
     </>

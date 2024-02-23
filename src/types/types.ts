@@ -17,7 +17,7 @@ export interface SpaceXdata {
   id: string;
 }
 
-export interface DateEvent {
-  target: string;
-  value: string;
+export interface CuriosityData {
+  img_src: string;
+  id: number;
 }

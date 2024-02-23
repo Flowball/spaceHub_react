@@ -1,13 +1,11 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
-import { DateEvent } from "../types/types";
 import QueryPhotosData from "./QueryPhotosData";
 
-// TYPA SKITEN!!!
 function RoverImages() {
   const [queryDate, setQueryDate] = useState("");
 
-  function handleDateChange(e: DateEvent) {
+  function handleDateChange(e: ChangeEvent<{ value: string }>) {
     if (e.target.value) {
       setQueryDate(e.target.value);
     }

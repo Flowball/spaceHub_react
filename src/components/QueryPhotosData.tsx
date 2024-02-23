@@ -3,18 +3,13 @@ interface Props {
 }
 
 import { useQuery } from "@tanstack/react-query";
+import { getCurisosityData } from "../api/nasa";
 
 function QueryPhotosData(props: Props) {
   const query = useQuery({
-    queryKey: ["data"],
+    queryKey: ["data", props.queryDate],
     // enabled: false,
-    queryFn: async () => {
-      const response = await fetch(
-        `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${props.queryDate}&api_key=KVRMfJv1YoZpHvHlgsNAoIaU8zNJAVViIbsbd2d6`
-      );
-      const data = await response.json();
-      return data;
-    },
+    queryFn: () => getCurisosityData(props.queryDate),
   });
 
   if (query.isLoading) return <h1>LOADING....</h1>;

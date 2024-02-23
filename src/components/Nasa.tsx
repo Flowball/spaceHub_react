@@ -4,7 +4,7 @@ import { Link, Outlet } from "react-router-dom";
 function Nasa() {
   return (
     <>
-      <div className=" flex flex-col text-2xl  justify-around h-full space-y-2 ">
+      <div className="flex flex-col justify-around h-full space-y-2 text-2xl ">
         <Link to={"/nasa/pictureoftheday"} className="h-full">
           <div className="flex justify-between items-center h-full bg-[#F2F5F9] p-4 cursor-pointer">
             <p>Picture of the day</p>
@@ -13,7 +13,7 @@ function Nasa() {
         </Link>
         <Link to={"/nasa/marsweather"} className="h-full">
           <div className="flex justify-between items-center h-full bg-[#F2F5F9] p-4 cursor-pointer">
-            <p>Mars Weather</p>
+            <p>Curiosity Photos</p>
             <ChevronRightIcon className="w-10 h-10" />
           </div>
         </Link>

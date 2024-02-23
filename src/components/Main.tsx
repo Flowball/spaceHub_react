@@ -20,8 +20,8 @@ function Main() {
             </div>
             <div>
               This application utilizes React JS, hooks, router, props, and API
+              fetching.
             </div>
-            fetching.
           </div>
         </div>
         <div className="flex bg-[#FDF470] rounded-lg p-4 items-center text-xl gap-2">

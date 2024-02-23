@@ -7,13 +7,19 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import { getSpaceXData } from "../api/spaceX";
 import { SpaceXdata } from "../types/types";
+import Loading from "./Loading";
 
 function Spacex() {
   const query = useQuery<SpaceXdata[]>({
     queryKey: ["spacex-launches"],
     queryFn: () => getSpaceXData(),
   });
-  if (query.isLoading) return <h1>LOADING....</h1>;
+  if (query.isLoading)
+    return (
+      <h1>
+        <Loading />
+      </h1>
+    );
   if (query.isError) return <h1>Something went wrong....</h1>;
 
   const iconStyles = "size-12";

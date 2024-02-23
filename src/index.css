@@ -21,6 +21,9 @@ body {
 .rotate {
   animation: rotation 25s infinite linear;
 }
+.fastRotate {
+  animation: rotation 3s infinite linear;
+}
 
 @keyframes rotation {
   from {

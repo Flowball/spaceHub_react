@@ -17,3 +17,16 @@ body {
     rgba(46, 130, 230, 1) 82%
   );
 }
+
+.rotate {
+  animation: rotation 25s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

@@ -8,7 +8,10 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import App from "./App.tsx";
+import EONET from "./components/EONET.tsx";
 import Nasa from "./components/Nasa.tsx";
+import POTD from "./components/POTD.tsx";
+import RoverImages from "./components/RoverImages.tsx";
 import Spacex from "./components/Spacex.tsx";
 import "./index.css";
 
@@ -18,7 +21,11 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" Component={App}>
       <Route path="spacex" Component={Spacex}></Route>
-      <Route path="nasa" Component={Nasa}></Route>
+      <Route path="nasa" Component={Nasa}>
+        <Route path="pictureoftheday" Component={POTD} />
+        <Route path="marsweather" Component={RoverImages} />
+        <Route path="eonet" Component={EONET} />
+      </Route>
     </Route>
   )
 );

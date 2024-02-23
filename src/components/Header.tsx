@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Aside from "./NavBar";
+import NavBar from "./NavBar";
 
 function Header() {
   return (
@@ -9,7 +9,7 @@ function Header() {
           <h2>SPEJS 🚀</h2>
         </Link>
       </div>
-      <Aside />
+      <NavBar />
     </header>
   );
 }

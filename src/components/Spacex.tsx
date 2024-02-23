@@ -9,7 +9,7 @@ import { SpaceXdata } from "../types";
 
 function Spacex() {
   const query = useQuery<SpaceXdata[]>({
-    queryKey: ["data"],
+    queryKey: ["spacex-launches"],
     queryFn: async () => {
       const response = await fetch("https://api.spacexdata.com/v5/launches");
       const data = await response.json();
@@ -20,15 +20,15 @@ function Spacex() {
   if (query.isError) return <h1>Something went wrong....</h1>;
 
   const iconStyles = "size-12";
+
   return (
     <>
-      <main className=" container p-4 grid grid-cols-2 flex-col  gap-4 w-full mx-auto">
-        {/* <h1 className="">SPACE X LAUNCHES</h1> */}
+      <main className="container grid flex-col w-full grid-cols-2 gap-4 p-4 mx-auto ">
         {query.data?.map((data) => (
           <>
             <div
               key={data.id}
-              className="border-2 w-full flex flex-col gap-4 bg-slate-100 border-slate-100 rounded-lg p-4"
+              className="flex flex-col w-full gap-4 p-4 border-2 rounded-lg bg-slate-100 border-slate-100"
             >
               <div
                 key={data.links.patch.large}
@@ -75,7 +75,7 @@ function Spacex() {
                 ) : null}
               </div>
               {data.rocket ? (
-                <div className="flex flex-col ">
+                <div className="flex flex-col">
                   <div>RocketID: {data.rocket}</div>
                   <div>LaunchpadID: {data.launchpad}</div>
                 </div>

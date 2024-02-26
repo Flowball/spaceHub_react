@@ -9,7 +9,6 @@ import {
 } from "react-router-dom";
 import App from "./App.tsx";
 import RoverImages from "./components/CuriosityPhotos.tsx";
-import EONET from "./components/EONET.tsx";
 import Main from "./components/Main.tsx";
 import Nasa from "./components/Nasa.tsx";
 import POTD from "./components/POTD.tsx";
@@ -26,7 +25,6 @@ const router = createBrowserRouter(
       <Route path="nasa" Component={Nasa}>
         <Route path="pictureoftheday" Component={POTD} />
         <Route path="curiosityphotos" Component={RoverImages} />
-        <Route path="eonet" Component={EONET} />
       </Route>
     </Route>
   )

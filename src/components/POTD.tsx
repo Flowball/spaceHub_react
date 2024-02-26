@@ -1,3 +1,4 @@
+import { PhotoIcon } from "@heroicons/react/24/outline";
 import { useQuery } from "@tanstack/react-query";
 import { getPictureOftheDayData } from "../api/nasa";
 import Loading from "./Loading";
@@ -30,12 +31,17 @@ function POTD() {
               Title: <b>{query.data?.title}</b>
             </p>
           </div>
-          <div className="flex">
-            <img
-              src={query.data.hdurl}
-              alt="picture of the day"
-              className="max-w-lg rounded-lg"
-            />
+          <div className="grid grid-cols-2">
+            {query.data.hdurl ? (
+              <img
+                src={query.data.hdurl}
+                alt="picture of the day"
+                className="max-w-lg rounded-lg"
+              />
+            ) : (
+              <PhotoIcon className="w-50 text-slate-50" />
+            )}
+
             <h2 className="px-4">Explanation: {query.data?.explanation}</h2>
           </div>
           <div className="py-4">

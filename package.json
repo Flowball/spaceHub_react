@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
+    "@stylexjs/babel-plugin": "^0.5.1",
+    "@stylexjs/stylex": "^0.5.1",
     "@tanstack/react-query": "^5.22.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

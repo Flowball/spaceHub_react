@@ -4,9 +4,29 @@ import NasaIcon from "../assets/NasaIcon";
 import IconReact from "../assets/ReactIcon";
 import SpaceXIcon from "../assets/SpaceXIcon";
 
+import stylex from "@stylexjs/stylex";
+
+const styles = stylex.create({
+  container: {
+    maxWidth: {
+      "@media (min-width: 640px)": "640px",
+      "@media (min-width: 768px)": "768px",
+      "@media (min-width: 1024px)": "1024px",
+      "@media (min-width: 1280px)": "1280px",
+      "@media (min-width: 1536px)": "1536px",
+    },
+    padding: "1rem",
+    display: "flex",
+    flexDirection: "column",
+    margin: "0 auto",
+    gap: 4,
+  },
+});
+
 function Main() {
   return (
-    <div className="container p-4 flex flex-col mx-auto gap-4">
+    // <div className="container p-4 flex flex-col mx-auto gap-4">
+    <div {...stylex.props(styles.container)}>
       <div className="flex flex-col items-center">
         <h1 className="text-6xl ">SPEJS 🚀</h1>
       </div>

@@ -16,7 +16,7 @@ const config = {
           // default: 'commonJS'
           type: "commonJS",
           // The absolute path to the root directory of your project
-          rootDir: __dirname,
+          rootDir: "/src",
         },
       },
     ],

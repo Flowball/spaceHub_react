@@ -6,8 +6,9 @@ import SpaceXIcon from "../assets/SpaceXIcon";
 
 import stylex from "@stylexjs/stylex";
 
-const styles = stylex.create({
+const mainStyles = stylex.create({
   container: {
+    width: "100%",
     maxWidth: {
       "@media (min-width: 640px)": "640px",
       "@media (min-width: 768px)": "768px",
@@ -21,20 +22,72 @@ const styles = stylex.create({
     margin: "0 auto",
     gap: 4,
   },
+  flexColCenter: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  sizeXlText: {
+    fontSize: "1.25rem",
+    lineHeight: "1.75rem",
+  },
+  sizeSixText: {
+    fontSize: "3.75rem",
+    lineHeight: 1,
+  },
+  boxContainerGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+    gap: "1rem",
+  },
+  childContainer: {
+    display: "flex",
+    flex: "1 1 0%",
+    backgroundColor: "#FDF470",
+    borderRadius: "0.5rem",
+    padding: "1rem",
+    alignItems: "center",
+    gap: "1rem",
+  },
+  iconSize: {
+    width: "5rem",
+    height: "5rem",
+  },
+  contentContainer: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "1rem",
+    marginTop: "1rem",
+  },
+  flex: {
+    display: "flex",
+  },
+  flexCol: {
+    flexDirection: "column",
+  },
+  halfWidth: {
+    width: "50%",
+  },
+  rotate: {
+    animation: "rotation 25s infinite linear",
+  },
 });
 
 function Main() {
   return (
-    // <div className="container p-4 flex flex-col mx-auto gap-4">
-    <div {...stylex.props(styles.container)}>
-      <div className="flex flex-col items-center">
-        <h1 className="text-6xl ">SPEJS 🚀</h1>
+    <div {...stylex.props(mainStyles.container)}>
+      <div {...stylex.props(mainStyles.flexColCenter)}>
+        <h1 {...stylex.props(mainStyles.sizeSixText)}>SPEJS 🚀</h1>
       </div>
-      <div className="grid grid-cols-2 gap-4">
-        <div className="flex flex-1 bg-[#FDF470] rounded-lg p-4 items-center gap-4">
-          <IconReact width={100} height={100} className="rotate" />
-          {/* <InboxStackIcon className="size-20 rotate" /> */}
-          <div className="text-xl">
+      <div {...stylex.props(mainStyles.boxContainerGrid)}>
+        <div {...stylex.props(mainStyles.childContainer)}>
+          <IconReact
+            width={100}
+            height={100}
+            {...stylex.props(mainStyles.rotate)}
+          />
+          {/* FIXA TILL DENNA */}
+          <div {...stylex.props(mainStyles.sizeXlText)}>
             <div>
               This is a school project intended for practicing React JS.
             </div>
@@ -44,25 +97,43 @@ function Main() {
             </div>
           </div>
         </div>
-        <div className="flex bg-[#FDF470] rounded-lg p-4 items-center text-xl gap-2">
-          <CodeBracketIcon className="size-20 " />
-          <div>
+        <div {...stylex.props(mainStyles.childContainer)}>
+          <CodeBracketIcon {...stylex.props(mainStyles.iconSize)} />
+          <div {...stylex.props(mainStyles.sizeXlText)}>
             Refer to <b>package.json</b> for information regarding dependencies.
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-4">
-        <div className="text-6xl flex flex-col ">
+      <div {...stylex.props(mainStyles.contentContainer)}>
+        <div
+          {...stylex.props(
+            mainStyles.sizeSixText,
+            mainStyles.flex,
+            mainStyles.flexCol
+          )}
+        >
           <h1>Content</h1>
-          <p className="flex flex-col text-xl">
+          <p
+            {...stylex.props(
+              mainStyles.flex,
+              mainStyles.flexCol,
+              mainStyles.sizeXlText
+            )}
+          >
             This application uses a navigation bar at the top right to navigate
             around different functions.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="flex flex-col bg-[#FDF470] items-center p-4 rounded-lg">
-            <SpaceXIcon width={200} height={200} />
-            <div>
+        <div {...stylex.props(mainStyles.boxContainerGrid)}>
+          <div
+            {...stylex.props(
+              mainStyles.childContainer,
+              mainStyles.flexCol,
+              mainStyles.sizeXlText
+            )}
+          >
+            <SpaceXIcon width={200} height={200} /> {/* FIXA DENNA  */}
+            <div {...stylex.props(mainStyles.halfWidth)}>
               <p>The SpaceX section displays all of SpaceX's launches.</p>
               <p>
                 The API thats being used it not offical.
@@ -77,9 +148,15 @@ function Main() {
               </p>
             </div>
           </div>
-          <div className="flex flex-col bg-[#FDF470] items-center p-4 rounded-lg">
+          <div
+            {...stylex.props(
+              mainStyles.childContainer,
+              mainStyles.flexCol,
+              mainStyles.sizeXlText
+            )}
+          >
             <NasaIcon width={200} height={200} />
-            <div className="w-64 pb-4">
+            <div {...stylex.props(mainStyles.halfWidth)}>
               <p>
                 The NASA section provides options to view the picture of the day
                 or see images captured by the Mars Rover - Curiosity - on

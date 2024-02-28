@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
 
 //Gör om t.ex text till varianter?? En separat fil för återanvändning
-const styles = stylex.create({
+const headerStyles = stylex.create({
   header: {
     display: "flex",
     flexDirection: "row",
@@ -21,8 +21,8 @@ const styles = stylex.create({
 
 function Header() {
   return (
-    <header {...stylex.props(styles.header)}>
-      <div {...stylex.props(styles.p4)}>
+    <header {...stylex.props(headerStyles.header)}>
+      <div {...stylex.props(headerStyles.p4)}>
         <Link to={"/"}>
           <h2>SPEJS 🚀</h2>
         </Link>

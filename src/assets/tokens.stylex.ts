@@ -43,6 +43,9 @@ export const tokens = stylex.create({
   fullWidth: {
     width: "100%",
   },
+  fullHeigh: {
+    height: "100%",
+  },
   flexColCenter: {
     display: "flex",
     flexDirection: "column",
@@ -63,11 +66,18 @@ export const tokens = stylex.create({
   itemsCenter: {
     alignItems: "center",
   },
+  gap2: {
+    gap: "0.5rem",
+  },
   gap4: {
     gap: "1rem",
   },
   gap10: {
     gap: "2.5rem",
+  },
+  size10: {
+    width: "2.5rem",
+    height: "2.5rem",
   },
   size20: {
     width: "5rem",
@@ -76,6 +86,22 @@ export const tokens = stylex.create({
   size36: {
     width: "9rem",
     height: "9rem",
+  },
+  justifyAround: {
+    justifyContent: "space-around",
+  },
+  justifyBetween: {
+    justifyContent: "space-between",
+  },
+  spaceY2: {
+    marginTop: " calc(0.5rem/* 8px */ * calc(1 - var(--tw-space-y-reverse)))",
+    marginBottom: " calc(0.5rem/* 8px */ * var(--tw-space-y-reverse))",
+  },
+
+  transitionAll: {
+    transitionProperty: "all",
+    transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+    transitionDuration: "150ms",
   },
 
   container: {

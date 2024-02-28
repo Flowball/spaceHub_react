@@ -109,6 +109,9 @@ export const tokens = stylex.create({
   itemsCenter: {
     alignItems: "center",
   },
+  textCenter: {
+    textAlign: "center",
+  },
   gap2: {
     gap: "0.5rem",
   },
@@ -146,7 +149,9 @@ export const tokens = stylex.create({
     transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
     transitionDuration: "150ms",
   },
-
+  cursorPointer: {
+    cursor: "pointer",
+  },
   container: {
     width: "100%",
     maxWidth: {

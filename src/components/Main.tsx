@@ -10,7 +10,7 @@ function Main() {
   return (
     <div {...stylex.props(mainStyles.mainContainer, tokens.container)}>
       <div {...stylex.props(tokens.flexCol)}>
-        <h1 {...stylex.props(tokens.text6)}>SPEJS 🚀</h1>
+        <h1 {...stylex.props(tokens.text6, tokens.textCenter)}>SPEJS 🚀</h1>
       </div>
       <div {...stylex.props(mainStyles.boxContainerGrid, tokens.mt4)}>
         <div {...stylex.props(mainStyles.childContainer)}>
@@ -64,7 +64,7 @@ function Main() {
                   }
                   target="_blank"
                 >
-                  <b> source</b>
+                  <b {...stylex.props(tokens.cursorPointer)}> source</b>
                 </Link>
               </p>
             </div>
@@ -83,7 +83,7 @@ function Main() {
                 or see images captured by the Mars Rover - Curiosity - on
                 specific dates.{" "}
                 <Link to={"https://api.nasa.gov/"} target="_blank">
-                  <b>source</b>
+                  <b {...stylex.props(tokens.cursorPointer)}>source</b>
                 </Link>
               </p>
             </div>

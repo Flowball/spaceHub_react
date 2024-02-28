@@ -7,7 +7,7 @@ function Header() {
   return (
     <header {...stylex.props(headerStyles.header)}>
       <div {...stylex.props(tokens.p4)}>
-        <Link to={"/"}>
+        <Link to={"/"} {...stylex.props(tokens.cursorPointer)}>
           <h2>SPEJS 🚀</h2>
         </Link>
       </div>

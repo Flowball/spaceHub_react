@@ -27,6 +27,7 @@ function Nasa() {
               tokens.fullHeigh,
               tokens.p4,
               tokens.transitionAll,
+              tokens.cursorPointer,
               location == "/nasa/pictureoftheday" && nasaStyles.activeYellow
             )}
           >
@@ -44,6 +45,7 @@ function Nasa() {
               tokens.fullHeigh,
               tokens.p4,
               tokens.transitionAll,
+              tokens.cursorPointer,
               location == "/nasa/curiosityphotos" && nasaStyles.activeYellow
             )}
           >

@@ -93,7 +93,8 @@ function Spacex() {
                       {...stylex.props(
                         tokens.flex,
                         tokens.flexRow,
-                        tokens.itemsCenter
+                        tokens.itemsCenter,
+                        tokens.cursorPointer
                       )}
                     >
                       <PlayIcon {...stylex.props(spaceXstyles.iconSize)} />
@@ -108,6 +109,7 @@ function Spacex() {
                       {...stylex.props(
                         tokens.flex,
                         tokens.flexRow,
+                        tokens.cursorPointer,
                         tokens.itemsCenter
                       )}
                     >
@@ -122,6 +124,7 @@ function Spacex() {
                       {...stylex.props(
                         tokens.flex,
                         tokens.flexRow,
+                        tokens.cursorPointer,
                         tokens.itemsCenter
                       )}
                     >

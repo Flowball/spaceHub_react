@@ -24,7 +24,7 @@ function QueryPhotosData(props: Props) {
   if (query.isError) return <h1>Something went wrong....</h1>;
   if (query.data.photos.length < 1)
     return (
-      <h1>
+      <h1 {...stylex.props(tokens.textXL)}>
         Unfortunately, there are no images available for the date{" "}
         <b {...stylex.props(tokens.textRed)}>{props.queryDate}</b>
       </h1>
@@ -32,7 +32,7 @@ function QueryPhotosData(props: Props) {
 
   return (
     <>
-      <h1>
+      <h1 {...stylex.props(tokens.textXL)}>
         Found <b>{query.data.photos.length}</b> images
       </h1>
       {query.data.photos.map((item: CuriosityData) => (
@@ -40,7 +40,7 @@ function QueryPhotosData(props: Props) {
           src={item.img_src}
           alt=""
           key={item.id}
-          {...stylex.props(tokens.roundedLg)}
+          {...stylex.props(tokens.roundedLg, tokens.fullWidth)}
         />
       ))}
     </>

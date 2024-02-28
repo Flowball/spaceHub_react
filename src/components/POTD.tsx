@@ -57,14 +57,16 @@ function POTD() {
               <img
                 src={query.data.hdurl}
                 alt="picture of the day"
-                {...stylex.props(tokens.roundedLg)}
+                {...stylex.props(tokens.roundedLg, tokens.fullWidth)}
               />
             ) : (
               <PhotoIcon {...stylex.props(tokens.width56, tokens.textWhite)} />
             )}
-            <h2 {...stylex.props(tokens.px4)}>
-              Explanation: {query.data?.explanation}
-            </h2>
+            <p {...stylex.props(tokens.px4, tokens.textXL)}>
+              <b>Explanation:</b>
+              <br />
+              {query.data?.explanation}
+            </p>
           </div>
           <div {...stylex.props(tokens.py4)}>
             Copyright: <b>{query.data?.copyright}</b>

@@ -1,6 +1,8 @@
 import { PhotoIcon } from "@heroicons/react/24/outline";
+import stylex from "@stylexjs/stylex";
 import { useQuery } from "@tanstack/react-query";
 import { getPictureOftheDayData } from "../api/nasa";
+import { tokens } from "../assets/tokens.stylex";
 import Loading from "./Loading";
 
 function POTD() {
@@ -18,12 +20,31 @@ function POTD() {
 
   return (
     <>
-      <div className="container mx-auto">
-        <h1 className="flex flex-col items-center text-2xl font-space p-4">
-          PICTURE OF THE DAY
+      <div {...stylex.props(tokens.container, tokens.mxAuto)}>
+        <h1
+          {...stylex.props(
+            tokens.flex,
+            tokens.flexCol,
+            tokens.itemsCenter,
+            tokens.text2XL,
+            tokens.p4
+          )}
+        >
+          <h1>PICTURE OF THE DAY</h1>
         </h1>
-        <div className="flex flex-col mx-20 bg-slate-300 rounded-lg p-4">
-          <div className="flex justify-between py-4">
+        <div
+          {...stylex.props(
+            tokens.flex,
+            tokens.flexCol,
+            tokens.mx20,
+            POTDstyles.cardBackground,
+            tokens.roundedLg,
+            tokens.p4
+          )}
+        >
+          <div
+            {...stylex.props(tokens.flex, tokens.justifyBetween, tokens.py4)}
+          >
             <p>
               Date: <b>{query.data?.date}</b>
             </p>
@@ -52,5 +73,11 @@ function POTD() {
     </>
   );
 }
+
+const POTDstyles = stylex.create({
+  cardBackground: {
+    backgroundColor: "rgb(203 213 225)",
+  },
+});
 
 export default POTD;

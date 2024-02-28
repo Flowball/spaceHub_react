@@ -29,6 +29,10 @@ export const tokens = stylex.create({
     paddingTop: "0.5rem",
     paddingBottom: "0.5rem",
   },
+  py4: {
+    paddingTop: "1rem",
+    paddingBottom: "1rem",
+  },
   text6: {
     fontSize: "3.75rem",
     lineHeight: 1,
@@ -73,6 +77,10 @@ export const tokens = stylex.create({
   },
   mxAuto: {
     margin: "0 auto",
+  },
+  mx20: {
+    marginLeft: "5rem",
+    marginRight: "5rem",
   },
   mt4: {
     marginTop: "1rem",

@@ -41,6 +41,10 @@ export const tokens = stylex.create({
     fontSize: "1.25rem",
     lineHeight: "1.75rem",
   },
+  text6XL: {
+    fontSize: "6rem",
+    lineHeight: "1rem",
+  },
   flexCol: {
     flexDirection: "column",
   },
@@ -49,6 +53,9 @@ export const tokens = stylex.create({
   },
   rotate: {
     animation: "rotation 25s infinite linear",
+  },
+  fastRotate: {
+    animation: "rotation 3s infinite linear",
   },
   halfWidth: {
     width: "50%",
@@ -69,6 +76,9 @@ export const tokens = stylex.create({
   },
   mt4: {
     marginTop: "1rem",
+  },
+  mt16: {
+    marginTop: "4rem",
   },
   border2: {
     borderWidth: "2px",

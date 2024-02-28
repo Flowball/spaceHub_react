@@ -16,6 +16,19 @@ export const tokens = stylex.create({
   p4: {
     padding: "1rem",
   },
+  px4: {
+    paddingLeft: "1rem",
+    paddingRight: "1rem",
+  },
+
+  px10: {
+    paddingLeft: "2.5rem",
+    paddingRight: "2.5rem",
+  },
+  py2: {
+    paddingTop: "0.5rem",
+    paddingBottom: "0.5rem",
+  },
   text6: {
     fontSize: "3.75rem",
     lineHeight: 1,
@@ -62,6 +75,9 @@ export const tokens = stylex.create({
   },
   roundedLg: {
     borderRadius: "0.5rem",
+  },
+  roundedFull: {
+    borderRadius: "999999px",
   },
   itemsCenter: {
     alignItems: "center",

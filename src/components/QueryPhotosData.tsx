@@ -2,8 +2,10 @@ interface Props {
   queryDate: string;
 }
 
+import stylex from "@stylexjs/stylex";
 import { useQuery } from "@tanstack/react-query";
 import { getCurisosityData } from "../api/nasa";
+import { tokens } from "../assets/tokens.stylex";
 import { CuriosityData } from "../types/types";
 import Loading from "./Loading";
 
@@ -24,7 +26,7 @@ function QueryPhotosData(props: Props) {
     return (
       <h1>
         Unfortunately, there are no images available for the date{" "}
-        <b className="text-red-500">{props.queryDate}</b>
+        <b {...stylex.props(tokens.textRed)}>{props.queryDate}</b>
       </h1>
     );
 
@@ -34,7 +36,12 @@ function QueryPhotosData(props: Props) {
         Found <b>{query.data.photos.length}</b> images
       </h1>
       {query.data.photos.map((item: CuriosityData) => (
-        <img src={item.img_src} alt="" key={item.id} className="rounded-lg" />
+        <img
+          src={item.img_src}
+          alt=""
+          key={item.id}
+          {...stylex.props(tokens.roundedLg)}
+        />
       ))}
     </>
   );

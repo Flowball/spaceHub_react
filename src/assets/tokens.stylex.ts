@@ -52,6 +52,9 @@ export const tokens = stylex.create({
   textWhite: {
     color: "#ffff",
   },
+  textRed: {
+    color: "rgb(239 68 68)",
+  },
   flexCol: {
     flexDirection: "column",
   },

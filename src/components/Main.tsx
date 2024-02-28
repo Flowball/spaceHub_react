@@ -22,11 +22,13 @@ function Main() {
           {/* FIXA TILL DENNA */}
           <div {...stylex.props(tokens.textXL)}>
             <div>
-              This is a school project intended for practicing React JS.
+              <p>This is a school project intended for practicing React JS.</p>
             </div>
             <div>
-              This application utilizes React JS, hooks, router, props, and API
-              fetching.
+              <p>
+                This application utilizes React JS, hooks, router, props, and
+                API fetching.
+              </p>
             </div>
           </div>
         </div>
@@ -39,7 +41,7 @@ function Main() {
       </div>
       <div {...stylex.props(mainStyles.contentContainer, tokens.mt4)}>
         <div {...stylex.props(tokens.text6, tokens.flex, tokens.flexCol)}>
-          <h1>Content</h1>
+          <h2>Content</h2>
           <p {...stylex.props(tokens.flex, tokens.flexCol, tokens.textXL)}>
             This application uses a navigation bar at the top right to navigate
             around different functions.
@@ -113,7 +115,7 @@ const mainStyles = stylex.create({
     flex: "1 1 0%",
     backgroundColor: "#FDF470",
     borderRadius: "0.5rem",
-    padding: "1rem",
+    padding: "5rem",
     alignItems: "center",
     gap: "1rem",
   },

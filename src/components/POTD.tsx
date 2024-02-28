@@ -30,7 +30,7 @@ function POTD() {
             tokens.p4
           )}
         >
-          <h1>PICTURE OF THE DAY</h1>
+          PICTURE OF THE DAY
         </h1>
         <div
           {...stylex.props(
@@ -52,20 +52,21 @@ function POTD() {
               Title: <b>{query.data?.title}</b>
             </p>
           </div>
-          <div className="grid grid-cols-2">
+          <div {...stylex.props(tokens.grid, tokens.gridCols2)}>
             {query.data.hdurl ? (
               <img
                 src={query.data.hdurl}
                 alt="picture of the day"
-                className="max-w-lg rounded-lg"
+                {...stylex.props(tokens.roundedLg)}
               />
             ) : (
-              <PhotoIcon className="w-50 text-slate-50" />
+              <PhotoIcon {...stylex.props(tokens.width56, tokens.textWhite)} />
             )}
-
-            <h2 className="px-4">Explanation: {query.data?.explanation}</h2>
+            <h2 {...stylex.props(tokens.px4)}>
+              Explanation: {query.data?.explanation}
+            </h2>
           </div>
-          <div className="py-4">
+          <div {...stylex.props(tokens.py4)}>
             Copyright: <b>{query.data?.copyright}</b>
           </div>
         </div>

@@ -49,6 +49,9 @@ export const tokens = stylex.create({
     fontSize: "6rem",
     lineHeight: "1rem",
   },
+  textWhite: {
+    color: "#ffff",
+  },
   flexCol: {
     flexDirection: "column",
   },
@@ -66,6 +69,9 @@ export const tokens = stylex.create({
   },
   fullWidth: {
     width: "100%",
+  },
+  width56: {
+    width: "14rem",
   },
   fullHeigh: {
     height: "100%",

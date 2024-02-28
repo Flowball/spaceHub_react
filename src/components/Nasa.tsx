@@ -1,43 +1,76 @@
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
+import stylex from "@stylexjs/stylex";
 import { Link, Outlet, useLocation } from "react-router-dom";
+import { tokens } from "../assets/tokens.stylex";
 
 function Nasa() {
-  const location = useLocation();
+  const location = useLocation().pathname;
   return (
     <>
-      <div className="flex flex-col justify-around h-full space-y-2 text-2xl ">
-        <Link to={"/nasa/pictureoftheday"} className="h-full">
+      <div
+        {...stylex.props(
+          tokens.flex,
+          tokens.flexCol,
+          tokens.justifyAround,
+          tokens.fullHeigh,
+          tokens.gap2,
+          tokens.text2XL
+        )}
+      >
+        <Link to={"/nasa/pictureoftheday"} {...stylex.props(tokens.fullHeigh)}>
           <div
-            className={
-              (location.pathname == "/nasa/pictureoftheday"
-                ? "bg-[#FDF470]"
-                : "bg-[#F2F5F9]") +
-              " flex justify-between items-center h-full p-4 cursor-pointer transition-all rounded-br-lg hover:bg-[#FDF470]"
-            }
+            {...stylex.props(
+              nasaStyles.nasaHoverEffect,
+              tokens.flex,
+              tokens.justifyBetween,
+              tokens.itemsCenter,
+              tokens.fullHeigh,
+              tokens.p4,
+              tokens.transitionAll,
+              tokens.cursorPointer,
+              location == "/nasa/pictureoftheday" && nasaStyles.activeYellow
+            )}
           >
             <p>Picture of the day</p>
-            <ChevronRightIcon className="w-10 h-10" />
+            <ChevronRightIcon {...stylex.props(tokens.size10)} />
           </div>
         </Link>
-        <Link to={"/nasa/curiosityphotos"} className="h-full">
+        <Link to={"/nasa/curiosityphotos"} {...stylex.props(tokens.fullHeigh)}>
           <div
-            className={
-              (location.pathname == "/nasa/curiosityphotos"
-                ? "bg-[#FDF470]"
-                : "bg-[#F2F5F9]") +
-              " flex justify-between items-center h-full p-4 cursor-pointer transition-all rounded-tr-lg hover:bg-[#FDF470]"
-            }
+            {...stylex.props(
+              nasaStyles.nasaHoverEffect,
+              tokens.flex,
+              tokens.justifyBetween,
+              tokens.itemsCenter,
+              tokens.fullHeigh,
+              tokens.p4,
+              tokens.transitionAll,
+              tokens.cursorPointer,
+              location == "/nasa/curiosityphotos" && nasaStyles.activeYellow
+            )}
           >
             <p>Curiosity Photos</p>
-            <ChevronRightIcon className="w-10 h-10" />
+            <ChevronRightIcon {...stylex.props(tokens.size10)} />
           </div>
         </Link>
       </div>
-      <div className="w-full">
+      <div {...stylex.props(tokens.fullWidth)}>
         <Outlet />
       </div>
     </>
   );
 }
+
+const nasaStyles = stylex.create({
+  nasaHoverEffect: {
+    backgroundColor: {
+      default: "white",
+      ":hover": "#fdf470cc",
+    },
+  },
+  activeYellow: {
+    backgroundColor: "#FDF470",
+  },
+});
 
 export default Nasa;

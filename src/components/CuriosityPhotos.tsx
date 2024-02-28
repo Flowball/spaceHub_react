@@ -1,5 +1,6 @@
+import stylex from "@stylexjs/stylex";
 import { ChangeEvent, useState } from "react";
-
+import { tokens } from "../assets/tokens.stylex";
 import QueryPhotosData from "./QueryPhotosData";
 
 function RoverImages() {
@@ -13,8 +14,17 @@ function RoverImages() {
 
   return (
     <>
-      <div className="flex flex-col container px-10 items-center mx-auto">
-        <h1 className="text-2xl p-4">
+      <div
+        {...stylex.props(
+          tokens.flex,
+          tokens.flexCol,
+          tokens.container,
+          tokens.px10,
+          tokens.itemsCenter,
+          tokens.mxAuto
+        )}
+      >
+        <h1 {...stylex.props(tokens.text2XL, tokens.p4)}>
           Find images captured by the Curiosity rover on a specific earth date
           of your choice.
         </h1>
@@ -25,10 +35,24 @@ function RoverImages() {
             onChange={(e) => {
               handleDateChange(e);
             }}
-            className="text-xl px-4 py-2 rounded-full"
+            {...stylex.props(
+              tokens.textXL,
+              tokens.px4,
+              tokens.py2,
+              tokens.roundedFull
+            )}
           />
         </form>
-        <div className="flex flex-col items-center p-4 text-xl gap-2">
+        <div
+          {...stylex.props(
+            tokens.flex,
+            tokens.flexCol,
+            tokens.itemsCenter,
+            tokens.p4,
+            tokens.textXL,
+            tokens.gap2
+          )}
+        >
           {queryDate && <QueryPhotosData queryDate={queryDate} />}
         </div>
       </div>

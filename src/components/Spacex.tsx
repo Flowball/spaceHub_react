@@ -4,8 +4,10 @@ import {
   PhotoIcon,
   PlayIcon,
 } from "@heroicons/react/24/outline";
+import stylex from "@stylexjs/stylex";
 import { useQuery } from "@tanstack/react-query";
 import { getSpaceXData } from "../api/spaceX";
+import { tokens } from "../assets/tokens.stylex";
 import { SpaceXdata } from "../types/types";
 import Loading from "./Loading";
 
@@ -22,42 +24,80 @@ function Spacex() {
     );
   if (query.isError) return <h1>Something went wrong....</h1>;
 
-  const iconStyles = "size-12";
-
   return (
     <>
-      <main className="mx-auto">
-        <h1 className="flex flex-col items-center text-2xl p-4">
+      <main {...stylex.props(tokens.mxAuto)}>
+        <h1
+          {...stylex.props(
+            tokens.flex,
+            tokens.flexCol,
+            tokens.itemsCenter,
+            tokens.text2XL,
+            tokens.p4
+          )}
+        >
           Compilation of all SpaceX spacecraft launches.
         </h1>
-        <div className="container grid flex-col w-full grid-cols-2 gap-4 p-4">
+
+        <div
+          {...stylex.props(
+            tokens.container,
+            tokens.grid,
+            tokens.fullWidth,
+            tokens.gridCols2,
+            tokens.gap4,
+            tokens.p4
+          )}
+        >
           {query.data?.map((data) => (
             <>
               <div
                 key={data.id}
-                className="flex flex-col w-full gap-4 p-4 border-2 rounded-lg bg-slate-100 border-slate-100"
+                {...stylex.props(
+                  spaceXstyles.bigContainer,
+                  tokens.flex,
+                  tokens.flexCol,
+                  tokens.fullWidth,
+                  tokens.gap4,
+                  tokens.p4,
+                  tokens.border2,
+                  tokens.roundedLg
+                )}
               >
                 <div
                   key={data.links.patch.large}
-                  className="flex items-center gap-10"
+                  {...stylex.props(
+                    tokens.flex,
+                    tokens.itemsCenter,
+                    tokens.gap10
+                  )}
                 >
                   {data.links.patch.large ? (
                     <img
                       src={data.links.patch.large}
                       alt="Image of current spacex patch"
-                      className="w-36 h-36"
+                      {...stylex.props(tokens.size36)}
                     />
                   ) : (
-                    <PhotoIcon className="w-20 h-20 text-slate-50" />
+                    <PhotoIcon {...stylex.props(tokens.size20)} />
                   )}
-                  <div key={data.name} className="text-2xl ">
+                  <div key={data.name} {...stylex.props(tokens.text2XL)}>
                     {data.name}
                   </div>
                 </div>
-                <div className="flex gap-4 text-2xl">
+                <div
+                  {...stylex.props(tokens.flex, tokens.gap4, tokens.text2XL)}
+                >
                   {data.links.webcast && (
-                    <div className="flex flex-row items-center">
-                      <PlayIcon className={iconStyles} />
+                    <div
+                      {...stylex.props(
+                        tokens.flex,
+                        tokens.flexRow,
+                        tokens.itemsCenter,
+                        tokens.cursorPointer
+                      )}
+                    >
+                      <PlayIcon {...stylex.props(spaceXstyles.iconSize)} />
                       <a href={data.links.webcast} target="_blank">
                         Webcast
                       </a>
@@ -65,16 +105,32 @@ function Spacex() {
                   )}
 
                   {data.links.article ? (
-                    <div className="flex flex-row items-center">
-                      <NewspaperIcon className={iconStyles} />
+                    <div
+                      {...stylex.props(
+                        tokens.flex,
+                        tokens.flexRow,
+                        tokens.cursorPointer,
+                        tokens.itemsCenter
+                      )}
+                    >
+                      <NewspaperIcon {...stylex.props(spaceXstyles.iconSize)} />
                       <a href={data.links.article} target="_blank">
                         Article
                       </a>
                     </div>
                   ) : null}
                   {data.links.wikipedia ? (
-                    <div className="flex flex-row items-center">
-                      <InformationCircleIcon className={iconStyles} />
+                    <div
+                      {...stylex.props(
+                        tokens.flex,
+                        tokens.flexRow,
+                        tokens.cursorPointer,
+                        tokens.itemsCenter
+                      )}
+                    >
+                      <InformationCircleIcon
+                        {...stylex.props(spaceXstyles.iconSize)}
+                      />
                       <a href={data.links.wikipedia} target="_blank">
                         Wikipedia
                       </a>
@@ -82,17 +138,17 @@ function Spacex() {
                   ) : null}
                 </div>
                 {data.rocket ? (
-                  <div className="flex flex-col">
+                  <div {...stylex.props(tokens.flex, tokens.flexCol)}>
                     <div>RocketID: {data.rocket}</div>
                     <div>LaunchpadID: {data.launchpad}</div>
                   </div>
                 ) : (
                   <div>No wiki article available</div>
                 )}
-                <div className="text-xl">{data.name}</div>
+                <div {...stylex.props(tokens.textXL)}>{data.name}</div>
                 <div>Date: {data.date_utc}</div>
                 <div>
-                  Success?{" "}
+                  Success?
                   {data.success ? (
                     <div>Flight Succes</div>
                   ) : (
@@ -107,5 +163,16 @@ function Spacex() {
     </>
   );
 }
+
+const spaceXstyles = stylex.create({
+  iconSize: {
+    width: "3rem",
+    height: "3rem",
+  },
+  bigContainer: {
+    backgroundColor: "#F1F5F9",
+    borderColor: "#F1F5F9",
+  },
+});
 
 export default Spacex;

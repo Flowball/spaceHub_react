@@ -1,6 +1,8 @@
 import { PhotoIcon } from "@heroicons/react/24/outline";
+import stylex from "@stylexjs/stylex";
 import { useQuery } from "@tanstack/react-query";
 import { getPictureOftheDayData } from "../api/nasa";
+import { tokens } from "../assets/tokens.stylex";
 import Loading from "./Loading";
 
 function POTD() {
@@ -18,12 +20,31 @@ function POTD() {
 
   return (
     <>
-      <div className="container mx-auto">
-        <h1 className="flex flex-col items-center text-2xl font-space p-4">
+      <div {...stylex.props(tokens.container, tokens.mxAuto)}>
+        <h1
+          {...stylex.props(
+            tokens.flex,
+            tokens.flexCol,
+            tokens.itemsCenter,
+            tokens.text2XL,
+            tokens.p4
+          )}
+        >
           PICTURE OF THE DAY
         </h1>
-        <div className="flex flex-col mx-20 bg-slate-300 rounded-lg p-4">
-          <div className="flex justify-between py-4">
+        <div
+          {...stylex.props(
+            tokens.flex,
+            tokens.flexCol,
+            tokens.mx20,
+            POTDstyles.cardBackground,
+            tokens.roundedLg,
+            tokens.p4
+          )}
+        >
+          <div
+            {...stylex.props(tokens.flex, tokens.justifyBetween, tokens.py4)}
+          >
             <p>
               Date: <b>{query.data?.date}</b>
             </p>
@@ -31,20 +52,23 @@ function POTD() {
               Title: <b>{query.data?.title}</b>
             </p>
           </div>
-          <div className="grid grid-cols-2">
+          <div {...stylex.props(tokens.grid, tokens.gridCols2)}>
             {query.data.hdurl ? (
               <img
                 src={query.data.hdurl}
                 alt="picture of the day"
-                className="max-w-lg rounded-lg"
+                {...stylex.props(tokens.roundedLg, tokens.fullWidth)}
               />
             ) : (
-              <PhotoIcon className="w-50 text-slate-50" />
+              <PhotoIcon {...stylex.props(tokens.width56, tokens.textWhite)} />
             )}
-
-            <h2 className="px-4">Explanation: {query.data?.explanation}</h2>
+            <p {...stylex.props(tokens.px4, tokens.textXL)}>
+              <b>Explanation:</b>
+              <br />
+              {query.data?.explanation}
+            </p>
           </div>
-          <div className="py-4">
+          <div {...stylex.props(tokens.py4)}>
             Copyright: <b>{query.data?.copyright}</b>
           </div>
         </div>
@@ -52,5 +76,11 @@ function POTD() {
     </>
   );
 }
+
+const POTDstyles = stylex.create({
+  cardBackground: {
+    backgroundColor: "rgb(203 213 225)",
+  },
+});
 
 export default POTD;

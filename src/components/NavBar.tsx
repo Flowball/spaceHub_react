@@ -3,43 +3,59 @@ import {
   HomeIcon,
   RocketLaunchIcon,
 } from "@heroicons/react/24/outline";
+import stylex from "@stylexjs/stylex";
 import { Link, useLocation } from "react-router-dom";
+import { tokens } from "../assets/tokens.stylex";
+
+const navBarStyles = stylex.create({
+  iconStyle: {
+    transitionProperty: "all",
+    transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+    transitionDuration: "150ms",
+    color: {
+      ":hover": "#fdf470cc",
+    },
+    width: "5rem",
+    height: "5rem",
+    padding: "1rem",
+  },
+  iconActiveStyle: {
+    color: "#FDF470",
+  },
+});
 
 function NavBar() {
-  const location = useLocation();
+  const location = useLocation().pathname;
 
   return (
-    <aside className="flex">
-      <Link to={"/"}>
-        <HomeIcon
-          className={
-            (location.pathname == "/" ? "text-[#FDF470]" : "text-[#BFCFE7]") +
-            " size-20 p-4 hover:text-[#fdf470cc] transition-all"
-          }
-        />
+    <aside {...stylex.props(tokens.flex)}>
+      <Link
+        to={"/"}
+        {...stylex.props(
+          navBarStyles.iconStyle,
+          location == "/" && navBarStyles.iconActiveStyle
+        )}
+      >
+        <HomeIcon />
       </Link>
-      <Link to={"/spacex"}>
-        <RocketLaunchIcon
-          className={
-            (location.pathname == "/spacex"
-              ? "text-[#FDF470]"
-              : "text-[#BFCFE7]") +
-            " size-20 p-4 hover:text-[#fdf470cc] transition-all"
-          }
-        />
+
+      <Link
+        to={"/spacex"}
+        {...stylex.props(
+          navBarStyles.iconStyle,
+          location == "/spacex" && navBarStyles.iconActiveStyle
+        )}
+      >
+        <RocketLaunchIcon />
       </Link>
-      <Link to={"/nasa"}>
-        <GlobeEuropeAfricaIcon
-          className={
-            (location.pathname == "/nasa" ||
-            location.pathname == "/nasa/pictureoftheday" ||
-            location.pathname == "/nasa/marsweather" ||
-            location.pathname == "/nasa/eonet"
-              ? "text-[#FDF470]"
-              : "text-[#BFCFE7]") +
-            " size-20 p-4 hover:text-[#fdf470cc] transition-all"
-          }
-        />
+      <Link
+        to={"/nasa"}
+        {...stylex.props(
+          navBarStyles.iconStyle,
+          location.startsWith("/nasa") && navBarStyles.iconActiveStyle
+        )}
+      >
+        <GlobeEuropeAfricaIcon />
       </Link>
     </aside>
   );

@@ -1,8 +1,21 @@
 import stylex from "@stylexjs/stylex";
 import { Link } from "react-router-dom";
+import { tokens } from "../assets/tokens.stylex";
 import NavBar from "./NavBar";
 
-//Gör om t.ex text till varianter?? En separat fil för återanvändning
+function Header() {
+  return (
+    <header {...stylex.props(headerStyles.header)}>
+      <div {...stylex.props(tokens.p4)}>
+        <Link to={"/"}>
+          <h2>SPEJS 🚀</h2>
+        </Link>
+      </div>
+      <NavBar />
+    </header>
+  );
+}
+
 const headerStyles = stylex.create({
   header: {
     display: "flex",
@@ -14,22 +27,6 @@ const headerStyles = stylex.create({
     backgroundColor: "#1F2544",
     color: "#BFCFE7",
   },
-  p4: {
-    padding: "1rem",
-  },
 });
-
-function Header() {
-  return (
-    <header {...stylex.props(headerStyles.header)}>
-      <div {...stylex.props(headerStyles.p4)}>
-        <Link to={"/"}>
-          <h2>SPEJS 🚀</h2>
-        </Link>
-      </div>
-      <NavBar />
-    </header>
-  );
-}
 
 export default Header;

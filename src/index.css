@@ -5,21 +5,6 @@ body {
   background-color: #bfcfe7;
 }
 
-.gradient-bg {
-  background: rgb(196, 217, 207);
-  background: linear-gradient(
-    90deg,
-    rgba(196, 217, 207, 1) 0%,
-    rgba(46, 130, 230, 1) 82%
-  );
-}
-
-.rotate {
-  animation: rotation 25s infinite linear;
-}
-.fastRotate {
-  animation: rotation 3s infinite linear;
-}
 * {
   margin: 0;
   padding: 0;

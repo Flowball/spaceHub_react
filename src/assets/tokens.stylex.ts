@@ -67,6 +67,13 @@ export const tokens = stylex.create({
   fastRotate: {
     animation: "rotation 3s infinite linear",
   },
+  wiggle: {
+    animation: "wiggle 0.5s infinite linear",
+  },
+  moveRocked: {
+    animation: "moveRocket 3s ",
+    transitionTimingFunction: "ease",
+  },
   halfWidth: {
     width: "50%",
   },
@@ -139,6 +146,9 @@ export const tokens = stylex.create({
   justifyBetween: {
     justifyContent: "space-between",
   },
+  justifyCenter: {
+    justifyContent: "center",
+  },
   spaceY2: {
     marginTop: " calc(0.5rem/* 8px */ * calc(1 - var(--tw-space-y-reverse)))",
     marginBottom: " calc(0.5rem/* 8px */ * var(--tw-space-y-reverse))",
@@ -151,6 +161,9 @@ export const tokens = stylex.create({
   },
   cursorPointer: {
     cursor: "pointer",
+  },
+  userSelectionNone: {
+    userSelect: "none",
   },
   container: {
     width: "100%",

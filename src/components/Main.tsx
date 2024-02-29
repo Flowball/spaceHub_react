@@ -1,5 +1,6 @@
 import { CodeBracketIcon } from "@heroicons/react/24/outline";
 import stylex from "@stylexjs/stylex";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import NasaIcon from "../assets/NasaIcon";
 import IconReact from "../assets/ReactIcon";
@@ -7,10 +8,42 @@ import SpaceXIcon from "../assets/SpaceXIcon";
 import { tokens } from "../assets/tokens.stylex";
 
 function Main() {
+  const [count, setCount] = useState(0);
+
+  function handleRocketClick() {
+    setCount(count + 1);
+    if (count > 4) {
+      setCount(0);
+    }
+  }
+
   return (
     <div {...stylex.props(mainStyles.mainContainer, tokens.container)}>
-      <div {...stylex.props(tokens.flexCol)}>
-        <h1 {...stylex.props(tokens.text6, tokens.textCenter)}>SPEJS 🚀</h1>
+      <div>
+        <h1
+          {...stylex.props(
+            tokens.text6,
+            tokens.textCenter,
+            tokens.flex,
+            tokens.justifyCenter,
+            tokens.gap2
+          )}
+        >
+          <p> SPEJS </p>
+          <p
+            onClick={() => {
+              handleRocketClick();
+            }}
+            {...stylex.props(
+              tokens.cursorPointer,
+              tokens.userSelectionNone,
+              count === 2 && tokens.wiggle,
+              count === 3 && tokens.moveRocked
+            )}
+          >
+            🚀
+          </p>
+        </h1>
       </div>
       <div {...stylex.props(mainStyles.boxContainerGrid, tokens.mt4)}>
         <div {...stylex.props(mainStyles.childContainer)}>

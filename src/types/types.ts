@@ -16,6 +16,7 @@ export interface SpaceXdata {
   patch: string;
   id: string;
   details: string;
+  failures: [{ reason: string }];
 }
 
 export interface CuriosityData {

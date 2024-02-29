@@ -15,13 +15,4 @@ function App() {
   );
 }
 
-const appStyles = stylex.create({
-  baseStyles: {
-    margin: 0,
-    padding: 0,
-    boxSizing: "border-box",
-    fontFamily: "Space Grotesk, sans-serif",
-  },
-});
-
 export default App;

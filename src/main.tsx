@@ -13,6 +13,7 @@ import Main from "./components/Main.tsx";
 import Nasa from "./components/Nasa.tsx";
 import POTD from "./components/POTD.tsx";
 import Spacex from "./components/Spacex.tsx";
+import "./index.css";
 
 const queryClient = new QueryClient();
 

@@ -1,20 +1,9 @@
-/**
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- *
- */
-
-// webpack config
-//
 const StylexPlugin = require("@stylexjs/webpack-plugin");
 const path = require("path");
 
 const config = (env, argv) => ({
   entry: {
-    main: "./js/index.js",
+    main: "./src/index.js",
   },
   output: {
     path: path.resolve(__dirname, ".build"),
@@ -30,12 +19,24 @@ const config = (env, argv) => ({
     ],
   },
   plugins: [
-    // See all options in the babel plugin configuration docs:
-    // https://stylexjs.com/docs/api/configuration/babel-plugin/
+    // Ensure that the stylex plugin is used before Babel
     new StylexPlugin({
       filename: "styles.[contenthash].css",
       // get webpack mode and set value for dev
       dev: argv.mode === "development",
+      // Use statically generated CSS files and not runtime injected CSS.
+      // Even in development.
+      runtimeInjection: false,
+      // optional. default: 'x'
+      classNamePrefix: "x",
+      // Required for CSS variable support
+      unstable_moduleResolution: {
+        // type: 'commonJS' | 'haste'
+        // default: 'commonJS'
+        type: "commonJS",
+        // The absolute path to the root directory of your project
+        rootDir: __dirname,
+      },
     }),
   ],
   cache: true,

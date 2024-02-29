@@ -9,18 +9,17 @@ import {
 } from "react-router-dom";
 import App from "./App.tsx";
 import RoverImages from "./components/CuriosityPhotos.tsx";
-import Main from "./components/Main.tsx";
+import HomePage from "./components/HomePage.tsx";
 import Nasa from "./components/Nasa.tsx";
 import POTD from "./components/POTD.tsx";
 import Spacex from "./components/Spacex.tsx";
-import "./index.css";
 
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" Component={App}>
-      <Route path="/" Component={Main}></Route>
+      <Route path="/" Component={HomePage}></Route>
       <Route path="spacex" Component={Spacex}></Route>
       <Route path="nasa" Component={Nasa}>
         <Route path="pictureoftheday" Component={POTD} />

@@ -7,7 +7,7 @@ import IconReact from "../assets/ReactIcon";
 import SpaceXIcon from "../assets/SpaceXIcon";
 import { tokens } from "../assets/tokens.stylex";
 
-function Main() {
+function HomePage() {
   const [count, setCount] = useState(0);
 
   function handleRocketClick() {
@@ -18,7 +18,7 @@ function Main() {
   }
 
   return (
-    <div {...stylex.props(mainStyles.mainContainer, tokens.container)}>
+    <div {...stylex.props(tokens.container, mainStyles.mainContainer)}>
       <div>
         <h1
           {...stylex.props(
@@ -162,4 +162,4 @@ const mainStyles = stylex.create({
   },
 });
 
-export default Main;
+export default HomePage;

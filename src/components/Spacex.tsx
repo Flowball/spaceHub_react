@@ -23,7 +23,6 @@ function Spacex() {
       </h1>
     );
   if (query.isError) return <h1>Something went wrong....</h1>;
-
   return (
     <>
       <main {...stylex.props(tokens.mxAuto)}>
@@ -61,7 +60,8 @@ function Spacex() {
                   tokens.gap4,
                   tokens.p4,
                   tokens.border2,
-                  tokens.roundedLg
+                  tokens.roundedLg,
+                  data.success ? tokens.bgLightGreen : tokens.bgLightRed
                 )}
               >
                 <div
@@ -139,20 +139,39 @@ function Spacex() {
                 </div>
                 {data.rocket ? (
                   <div {...stylex.props(tokens.flex, tokens.flexCol)}>
-                    <div>RocketID: {data.rocket}</div>
-                    <div>LaunchpadID: {data.launchpad}</div>
+                    <div>
+                      <b>RocketID: </b>
+                      {data.rocket}
+                    </div>
+                    <div>
+                      <b>LaunchpadID: </b>
+                      {data.launchpad}
+                    </div>
                   </div>
                 ) : (
                   <div>No wiki article available</div>
                 )}
-                <div {...stylex.props(tokens.textXL)}>{data.name}</div>
-                <div>Date: {data.date_utc}</div>
+                <div {...stylex.props(tokens.border2)}>
+                  <p>
+                    <b>Details: </b>
+                  </p>
+                  <p>{data.details}</p>
+                </div>
                 <div>
-                  Success?
+                  <b>Date: </b>
+                  {data.date_utc}
+                </div>
+                <div>
                   {data.success ? (
                     <div>Flight Succes</div>
                   ) : (
-                    <div>Flight failed</div>
+                    <>
+                      <i>Flight failed</i>
+                      <div>
+                        <b>Fail Reason: </b>
+                        {data.failures.map((number) => number.reason)}
+                      </div>
+                    </>
                   )}
                 </div>
               </div>

@@ -13,6 +13,12 @@ export const tokens = stylex.create({
   bgRed: {
     background: "red",
   },
+  bgLightGreen: {
+    backgroundColor: "#dff1e1",
+  },
+  bgLightRed: {
+    backgroundColor: "#fedada",
+  },
   p4: {
     padding: "1rem",
   },

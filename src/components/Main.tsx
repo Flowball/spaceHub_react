@@ -52,7 +52,6 @@ function Main() {
             height={100}
             {...stylex.props(tokens.rotate)}
           />
-          {/* FIXA TILL DENNA */}
           <div {...stylex.props(tokens.textXL)}>
             <div>
               <p>This is a school project intended for practicing React JS.</p>
@@ -148,7 +147,7 @@ const mainStyles = stylex.create({
     flex: "1 1 0%",
     backgroundColor: "#FDF470",
     borderRadius: "0.5rem",
-    padding: "5rem",
+    padding: "3.5rem",
     alignItems: "center",
     gap: "1rem",
   },

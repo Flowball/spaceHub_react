@@ -15,6 +15,7 @@ export interface SpaceXdata {
   success: boolean;
   patch: string;
   id: string;
+  details: string;
 }
 
 export interface CuriosityData {

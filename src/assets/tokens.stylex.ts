@@ -168,6 +168,9 @@ export const tokens = stylex.create({
   cursorPointer: {
     cursor: "pointer",
   },
+  positionRelative: {
+    position: "relative",
+  },
   userSelectionNone: {
     userSelect: "none",
   },

@@ -61,7 +61,7 @@ function Spacex() {
                   tokens.p4,
                   tokens.border2,
                   tokens.roundedLg,
-                  data.success ? tokens.bgLightGreen : tokens.bgLightRed
+                  tokens.positionRelative
                 )}
               >
                 <div
@@ -84,6 +84,17 @@ function Spacex() {
                   <div key={data.name} {...stylex.props(tokens.text2XL)}>
                     {data.name}
                   </div>
+                </div>
+                <div {...stylex.props(spaceXstyles.topRightContainer)}>
+                  {data.success ? (
+                    <p {...stylex.props(spaceXstyles.flightSuccesStyle)}>
+                      Flight success ✅{" "}
+                    </p>
+                  ) : (
+                    <p {...stylex.props(spaceXstyles.flightFailedStyle)}>
+                      Flight Failed 💥
+                    </p>
+                  )}
                 </div>
                 <div
                   {...stylex.props(tokens.flex, tokens.gap4, tokens.text2XL)}
@@ -162,16 +173,11 @@ function Spacex() {
                   {data.date_utc}
                 </div>
                 <div>
-                  {data.success ? (
-                    <div>Flight Succes</div>
-                  ) : (
-                    <>
-                      <i>Flight failed</i>
-                      <div>
-                        <b>Fail Reason: </b>
-                        {data.failures.map((number) => number.reason)}
-                      </div>
-                    </>
+                  {!data.success && (
+                    <div>
+                      <b>Fail Reason: </b>
+                      {data.failures.map((number) => number.reason)}
+                    </div>
                   )}
                 </div>
               </div>
@@ -191,6 +197,22 @@ const spaceXstyles = stylex.create({
   bigContainer: {
     backgroundColor: "#F1F5F9",
     borderColor: "#F1F5F9",
+  },
+  topRightContainer: {
+    position: "absolute",
+    top: "2%",
+    right: "2%",
+    padding: "4px",
+  },
+  flightSuccesStyle: {
+    backgroundColor: "#b1feb1",
+    padding: "0.5rem 1rem",
+    borderRadius: "0.5rem",
+  },
+  flightFailedStyle: {
+    backgroundColor: "#fec9c9",
+    padding: "0.5rem 1rem",
+    borderRadius: "0.5rem",
   },
 });
 

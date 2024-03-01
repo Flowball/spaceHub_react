@@ -2,6 +2,7 @@
 
 ### React.js school submission
 
+Spejs endeavors to present users with engaging data related to StyleX spacecraft launches, NASA's photo of the day, and images captured by the Curiosity rover on Mars.
 <br>
 
 This project uses React JS along with features like hooks, router, props, and API fetching.
@@ -21,3 +22,5 @@ or
 ```js
 bun install
 ```
+
+[Link to application](https://space-hub-react.vercel.app/)
